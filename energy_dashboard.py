@@ -22,7 +22,7 @@ def simulate_data():
     np.random.seed(42)
     buildings = ["Sydney Martin Library", "FST Building", "Sir Philip Sherlock Hall", "Admin Building"]
     commodities = ["Electricity", "Water", "Gas"]
-    date_rng = pd.date_range("2020-01-01", periods=48, freq="M")  # 4 years monthly
+    date_rng = pd.date_range(start="2020-01-01", end=pd.Timestamp.today(), freq="M") # 5 years monthly
     rows = []
     for b in buildings:
         for c in commodities:
