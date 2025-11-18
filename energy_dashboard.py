@@ -27,7 +27,7 @@ def simulate_data():
     for b in buildings:
         for c in commodities:
             # Create seasonality for electricity, less for water/gas
-            base_usage = {"Electricity": 4000, "Water": 2000, "Gas": 1500}[c]
+            base_usage = {"Electricity": 4000, "Water": 500, "Gas": 1500}[c]
             for d in date_rng:
                 season = 1 + 0.2 * np.sin(2 * np.pi * (d.month / 12.0))
                 usage = base_usage * season * np.random.uniform(0.85, 1.15)
@@ -107,6 +107,7 @@ if filtered_df.empty:
 date_start_display = filtered_df["Date"].min().strftime("%b %Y")
 date_end_display = filtered_df["Date"].max().strftime("%b %Y")
 
+st.sidebar.markdown("- Electricity: BBD 0.678/kWh\n- Water: BBD 7.78/m³\n- Gas: BBD 0.08/unit (placeholder)")
 # -------------------------
 # Rolling 12 months and previous 12 months
 # -------------------------
@@ -301,6 +302,5 @@ sim_co2 = simulated_reduction_cost["Usage_adj"].sum() * 0.000601
 
 st.write(f"With a **{reduction}%** reduction in usage you would save approximately **${savings:,.0f}** annually and reduce CO₂ by **{(co2_est - sim_co2)/1000:,.2f}** tons.")
 st.progress(reduction / 100)
-
 st.markdown("---")
 st.caption("© 2025 UWI Cavehill Energy Dashboard | Built with Streamlit ⚡")
