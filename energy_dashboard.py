@@ -31,7 +31,11 @@ def simulate_data():
             for d in date_rng:
                 season = 1 + 0.2 * np.sin(2 * np.pi * (d.month / 12.0))
                 usage = base_usage * season * np.random.uniform(0.85, 1.15)
-                cost_per_unit = {"Electricity": 0.25, "Water": 0.01, "Gas": 0.08}[c]  # sample unit costs
+                cost_per_unit = {
+                    "Electricity": 0.678,  # BBD per kWh
+                    "Water": 7.78,  #BBD per metre cubed
+                    "Gas": 0.08  # Placeholder
+                }[c]
                 cost = usage * cost_per_unit * np.random.uniform(0.95, 1.1)
                 rows.append({
                     "Date": d,
@@ -293,7 +297,7 @@ simulated_reduction_cost["Usage_adj"] = simulated_reduction_cost["Usage"] * (1 -
 simulated_reduction_cost["Cost_adj"] = simulated_reduction_cost["Cost"] * (simulated_reduction_cost["Usage_adj"] / simulated_reduction_cost["Usage"])
 sim_total_cost = simulated_reduction_cost["Cost_adj"].sum()
 savings = total_cost - sim_total_cost
-sim_co2 = simulated_reduction_cost["Usage_adj"].sum() * 0.0007
+sim_co2 = simulated_reduction_cost["Usage_adj"].sum() * 0.000601
 
 st.write(f"With a **{reduction}%** reduction in usage you would save approximately **${savings:,.0f}** annually and reduce CO₂ by **{(co2_est - sim_co2)/1000:,.2f}** tons.")
 st.progress(reduction / 100)
