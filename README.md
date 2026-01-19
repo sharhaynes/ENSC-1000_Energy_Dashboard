@@ -2,6 +2,8 @@
 A Sustainable enrgy dashboard created for the group project for ENSC 1000: Earth and its Environment
 
 ## Live Demos
+![Energy Dashboard Demo](EnergyDashboardDemo.gif)
+
 
 | Type | Live Demo | Source Code |
 |------|------------|--------------|
