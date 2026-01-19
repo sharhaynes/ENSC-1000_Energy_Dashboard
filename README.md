@@ -1,6 +1,13 @@
 # ENSC-1000_Energy_Dashboard
 A Sustainable enrgy dashboard created for the group project for ENSC 1000: Earth and its Environment
 
+## Live Demos
+
+| Type | Live Demo | Source Code |
+|------|------------|--------------|
+| 🧩 SUSTAINABLE ENRGY DASHBOARD | (https://ensc1000-energy-dashboard.streamlit.app/) | [ENERGY DASHBOARD) |
+---
+
 Scenario simulation (usage reduction impact)
 
 CSV upload option or simulated data generator
@@ -35,16 +42,12 @@ Monthly cost by building
 
 Yearly comparison bar charts
 
-Real-time gauge indicators
-
 4. Forecasting
 
 Uses Facebook Prophet to forecast 6, 12, or 24 months ahead.
 
-5. Scenario simulation
 
-Users can apply a percentage reduction in usage to estimate:
-
-Cost savings
-
-Carbon savings
+## Author
+**T'Shara Haynes**  
+📧 [haynestshara0@gmail.com]
+🌐 [yourportfolio.github.io](https://yourportfolio.github.io)
